@@ -1,0 +1,17 @@
+PROJECT 1: Secure VPC Architecture
+
+What I built:
+- Custom VPC with CIDR 10.0.0.0/16
+- Public subnet (internet facing)
+- Private subnet (secure, no internet)
+- Internet Gateway attached
+- Route Table with internet route
+- Security Group (HTTP, HTTPS, SSH rules)
+- Network ACL (extra security layer)
+- VPC Flow Logs → CloudWatch
+
+Security concepts applied:
+- Network segmentation (public vs private)
+- Least privilege network access
+- Defence in depth (SG + NACL together)
+- Full network traffic logging
