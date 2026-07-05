@@ -1,0 +1,23 @@
+PROJECT: IAM Security Setup
+Date: July 5th, 2026
+
+What I built:
+- Created cloud-security-team group
+- Created 2 IAM users with least privilege
+- Created custom S3 policy
+- Created EC2 role for S3 access
+- Tested permissions — access denied working ✅
+- Generated credential report
+
+Key concepts learned:
+- Least privilege principle
+- Difference between users, groups, roles, policies
+- How CloudTrail logs every action
+
+Observation:
+AWS Credential Report has a refresh delay —
+does not update in real time after changes.
+
+Best Practice:
+Always wait a few minutes after making 
+IAM changes before generating audit reports.
