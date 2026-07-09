@@ -1,0 +1,50 @@
+PROJECT 2: AWS Threat Detection Lab
+Date: Day 5
+What I built:
+
+Enabled GuardDuty (24/7 threat detection)
+Generated and analyzed sample security findings
+Enabled Security Hub with AWS Foundational Security Best Practices and CIS AWS Foundations Benchmark
+Created CloudTrail trail with permanent S3 storage, CloudWatch Logs and Log File Validation enabled
+Created SNS topic with confirmed email subscription for real time alerts
+Connected GuardDuty to EventBridge to SNS for automatic email notification when threat is detected
+
+Security concepts applied:
+
+Continuous threat monitoring (GuardDuty)
+Centralized security management (Security Hub)
+CIS benchmark compliance checking
+Audit logging with long term retention (CloudTrail)
+Log File Validation to prevent log tampering
+Automated incident alerting (EventBridge + SNS)
+Least privilege with dedicated IAM roles per service
+
+Challenges faced and resolved:
+
+AWS account showing incomplete registration — resolved by enabling IAM billing access from root account
+GuardDuty not accessible initially — resolved after account was fully activated
+Received unexpected account upgrade email — investigated and confirmed account remains on Basic Support plan with zero charges
+
+Real world value:
+
+This exact setup is used by companies paying thousands of dollars per month for security monitoring
+Built completely for free using AWS Free Tier
+GuardDuty, Security Hub and CloudTrail is the standard AWS security stack asked about in every cloud security interview
+
+Challenge 1:
+AWS account showing "Complete Registration" page
+→ Fixed by enabling IAM billing access from root
+
+Challenge 2:
+Cost Explorer AccessDeniedException
+→ Fixed by activating IAM user billing access
+   from root account settings
+
+Challenge 3:
+Accidentally received "upgraded to paid plan" email
+→ Investigated and confirmed still on 
+   Basic Support (FREE) — no charges ✅
+
+Challenge 4:
+GuardDuty not accessible initially
+→ Resolved after account fully activated
