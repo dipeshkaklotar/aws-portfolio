@@ -1,0 +1,64 @@
+PROJECT 3: S3 Security Hardening
+Date: Day 6
+What I built:
+
+Created S3 bucket with all security controls enabled from the start
+Verified and enforced Block Public Access on all 4 settings
+Applied bucket policy to deny all non-SSL (HTTP) requests — HTTPS only
+Enabled Server Side Encryption using SSE-S3 on all objects
+Created separate logging bucket and enabled Server Access Logging
+Enabled and tested Bucket Versioning with multiple file versions
+Configured Lifecycle Policy for automatic object expiry and cleanup
+Conducted full S3 security audit against best practices
+
+Security controls applied:
+
+Block Public Access (all 4 settings ON)
+Bucket Policy enforcing HTTPS only traffic
+SSE-S3 encryption on all stored objects
+ACLs disabled (recommended security setting)
+Server Access Logging to dedicated log bucket
+Bucket Versioning for data recovery and protection
+Lifecycle Policy for automated cleanup and cost management
+Object level encryption verified after upload
+
+Security audit results:
+
+Block Public Access: ON
+Bucket Versioning: Enabled
+Default Encryption SSE-S3: Enabled
+Access Logging: Enabled
+Bucket Policy HTTPS only: Applied
+Public Object URL access: Access Denied
+ACLs: Disabled
+MFA Delete: Best practice noted (requires CLI)
+Lifecycle Policy: Configured
+
+Challenges faced and resolved:
+
+Bucket policy returned Invalid Resource error
+Diagnosed bucket name mismatch in ARN resource field
+Fixed by correcting bucket name from dipes to dipesh
+Policy saved successfully after correction
+Lifecycle transition cost warning appeared
+Resolved by removing transition actions to avoid charges
+Kept expiry and cleanup rules only
+Documented production vs lab environment difference
+
+Real world value:
+
+S3 misconfiguration is the number one cause of cloud data breaches globally
+This exact hardening checklist is used by cloud security teams in every company
+Demonstrates ability to secure, audit and maintain S3 buckets to production standard
+Shows cost awareness by making smart decisions around lifecycle transitions
+
+Key learnings:
+
+Every character matters in AWS resource names and ARNs
+Block Public Access alone is not enough — bucket policy adds extra layer
+HTTPS enforcement prevents man in the middle attacks on data in transit
+SSE-S3 protects data at rest from unauthorized access
+Versioning protects against accidental deletion and ransomware
+Access logging is essential for security audit trails
+Lifecycle policies automate cleanup and prevent cost surprises
+Always test security controls after applying them
