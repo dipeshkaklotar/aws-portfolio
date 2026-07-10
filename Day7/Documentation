@@ -1,0 +1,58 @@
+PROJECT 4: IAM Security Audit
+Date: Day 7
+What I built:
+
+Conducted complete IAM security audit across all users
+Downloaded and analyzed IAM credential report
+Reviewed all users, groups and permissions
+Implemented strong password policy (14 characters, 90 day expiry)
+Reviewed all IAM roles and their last used dates
+Audited custom policies for least privilege compliance
+Analyzed service usage via Access Advisor for all users
+Created and ran IAM Access Analyzer
+Reviewed analyzer findings for external access issues
+Produced complete IAM security audit report
+
+Security controls applied:
+
+Strong password policy enforced (14 chars, uppercase, lowercase, numbers, symbols)
+Password expiration set to 90 days
+Password reuse prevention set to last 5 passwords
+MFA verified active on all 3 users
+Least privilege verified on all custom policies
+IAM Access Analyzer enabled for continuous monitoring
+Access Advisor reviewed to identify unused permissions
+
+Audit findings:
+
+MFA Status: Enabled on all users
+Password Policy: Updated to strong settings
+Custom Policies: Least privilege confirmed
+IAM Roles: Reviewed and documented
+Access Analyzer: Active and monitoring
+Unused Services: Identified via Access Advisor
+External Access: No findings detected
+
+Challenges faced and resolved:
+
+Access Advisor location not immediately obvious
+Found under individual user page in tabs section
+Located successfully under Permissions tab area
+
+Real world value:
+
+IAM audit is the first thing every security team does when joining a new company
+Access Advisor is used to identify and remove unnecessary permissions
+IAM Access Analyzer is used by companies to detect unintended external access
+Strong password policy is required for most compliance frameworks including SOC2 and ISO27001
+This exact audit process is asked about in every cloud security interview
+
+Key learnings:
+
+Credential report gives instant overview of all user security status
+Access Advisor shows exactly which services are used and unused
+Unused permissions should always be removed — principle of least privilege
+Password policy affects all IAM users in the entire account
+IAM Access Analyzer continuously monitors for unintended resource sharing
+Regular IAM audits are essential security hygiene in every cloud environment
+Strong password policy alone is not enough — MFA is always required
