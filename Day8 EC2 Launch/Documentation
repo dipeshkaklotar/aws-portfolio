@@ -1,0 +1,53 @@
+PROJECT 5: EC2 Hands-on + Security
+Date: Day 8
+What I built:
+
+Launched EC2 instance (dipesh-web-server) using Amazon Linux 2023 on t2.micro free tier
+Configured instance inside dipesh-security-vpc with dipesh-public-subnet
+Attached existing security group dipesh-web-sg with HTTP, HTTPS and SSH rules
+Created and safely stored key pair (dipesh-key-pair)
+Attached IAM role with S3 read only and SSM managed instance core permissions
+Connected to EC2 securely using AWS Systems Manager Session Manager
+Enabled detailed monitoring on EC2 instance
+Created CloudWatch alarm for CPU utilization above 80%
+Connected alarm to SNS topic for automatic email alerts
+Stopped instance after use to avoid charges
+
+Security concepts applied:
+
+Launched instance inside custom VPC not default VPC
+Used existing hardened security group with least privilege rules
+Attached IAM role instead of using access keys
+Used SSM Session Manager instead of open SSH connection
+Immediately reverted SSH rule from anywhere to My IP only
+Enabled detailed monitoring for security visibility
+Created CPU alarm for anomaly detection
+Instance stopped when not in use to reduce attack surface
+
+Challenges faced and resolved:
+
+EC2 Instance Connect failed with SSH connection error
+Investigated root cause — AWS Instance Connect uses different IP ranges
+Identified SSM Session Manager as more secure alternative
+Successfully connected via SSM with zero open ports required
+SSH security group temporarily opened to 0.0.0.0/0 for troubleshooting
+Immediately reverted back to My IP only after issue resolved
+Documented as security lesson learned
+
+Real world value:
+
+SSM Session Manager is the industry standard for EC2 access in real companies
+No open SSH ports means significantly reduced attack surface
+CloudWatch alarms with SNS notifications is standard monitoring setup
+IAM roles on EC2 is always preferred over access keys in production
+Stopping unused instances is standard cost and security practice
+
+Key learnings:
+
+EC2 Instance Connect requires open SSH ports which is a security risk
+SSM Session Manager requires zero open ports — most secure access method
+IAM roles must be stopped and started to take effect on EC2
+Detailed monitoring gives 1 minute intervals vs default 5 minutes
+CloudWatch alarms connected to SNS provide automated incident response
+Always stop EC2 instances when not in use to avoid charges
+Security groups should always follow least privilege principle
