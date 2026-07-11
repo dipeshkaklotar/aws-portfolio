@@ -1,0 +1,61 @@
+PROJECT 6: RDS + Route53
+Date: Day 9
+What I built:
+
+Created MySQL RDS database (dipesh-security-db) using Sandbox template
+Configured database inside dipesh-security-vpc with private access only
+Created new DB subnet group with subnets in multiple availability zones
+Enabled automated backups with 7 day retention period
+Enabled storage encryption at rest
+Enabled deletion protection to prevent accidental database removal
+Created private Route53 hosted zone (dipesh.internal) inside dipesh-security-vpc
+Created CNAME DNS record pointing to RDS endpoint
+Configured Route53 health check and cancelled before creation to avoid charges
+
+Security concepts applied:
+
+Database placed inside custom VPC not default VPC
+Public accessibility disabled — database not exposed to internet
+New dedicated security group created for database (dipesh-db-sg)
+Storage encryption enabled for data at rest protection
+Automated backups enabled for disaster recovery
+Deletion protection enabled to prevent accidental data loss
+Private hosted zone used for internal DNS resolution only
+Health check configured but cancelled due to cost awareness
+
+Challenges faced and resolved:
+
+First database creation failed with VPC mismatch error
+EC2 security group was in different VPC than RDS
+Fixed by creating new dedicated security group during RDS creation
+Second attempt failed with same VPC error
+Discovered VPC IDs were confusing between dipesh-security-vpc and default VPC
+Identified correct VPC by checking VPC ID in console
+Third attempt failed due to insufficient subnets
+RDS requires subnets in minimum 2 availability zones
+Fixed by creating dipesh-private-subnet-2 in us-east-1b with CIDR 10.0.3.0/24
+Database created successfully after this fix
+Route53 health check cancelled before creation
+Discovered health checks are charged per region
+8 regions would cost $4 per month minimum
+Documented as best practice for production environments
+
+Real world value:
+
+RDS managed database is used by majority of companies on AWS
+Private database with no public access is mandatory security requirement
+Encryption at rest is required for compliance frameworks like SOC2 and PCI DSS
+Automated backups are critical for disaster recovery planning
+Route53 private hosted zones allow internal DNS without exposing to internet
+Cost awareness during setup prevents unexpected cloud bills
+
+Key learnings:
+
+RDS requires subnets in at least 2 availability zones for subnet group
+Always create dedicated security groups for each service
+VPC selection must match across all related resources
+Public accessibility must always be disabled for databases
+Encryption and deletion protection should always be enabled
+Route53 health checks have per region costs — plan carefully
+Private hosted zones keep DNS resolution internal to VPC
+Always check cost implications before creating Route53 resources
