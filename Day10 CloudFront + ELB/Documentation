@@ -1,0 +1,53 @@
+PROJECT 7: CloudFront + ELB + Auto Scaling
+Date: Day 10
+What I built:
+
+Attempted CloudFront distribution setup with S3 origin and OAC configuration
+Created Application Load Balancer (dipesh-alb) inside dipesh-security-vpc
+Configured ALB with internet-facing scheme across 2 availability zones
+Created Target Group (dipesh-target-group) with EC2 instance registered
+Created Auto Scaling Group (dipesh-asg) with launch template
+Configured scaling policy targeting 70% CPU utilization
+Tested load balancer DNS endpoint
+Deleted all resources after testing to avoid charges
+
+Security concepts applied:
+
+Load balancer placed inside custom VPC
+Security group applied to load balancer
+Auto Scaling ensures high availability
+Resources deleted after use — responsible cost management
+Correct deletion order followed to prevent orphaned resources
+
+Challenges faced and resolved:
+
+CloudFront blocked by account verification requirement
+AWS Support contact required for new accounts
+Documented CloudFront configuration knowledge
+Will complete after account verification
+Load balancer DNS showed site cannot be reached
+Diagnosed root cause — no web server installed on EC2
+Understood difference between infrastructure and application layer
+ELB was working correctly — EC2 had no application to serve
+Auto Scaling launched extra EC2 instance during testing
+Understood Auto Scaling replaces unhealthy instances automatically
+Followed correct deletion order: ASG first then LB then Target Group
+Extra instance terminated automatically when ASG was deleted
+
+Real world value:
+
+Application Load Balancer is used by every major company for high availability
+Auto Scaling is essential for handling traffic spikes cost effectively
+CloudFront CDN reduces latency for global users
+Understanding deletion order prevents orphaned resources and unexpected charges
+Cost awareness demonstrated by deleting lab resources after testing
+
+Key learnings:
+
+EC2 is just infrastructure — web server software must be installed separately
+CloudFront delivers content faster but needs a web server behind it
+Auto Scaling Group controls EC2 — always delete ASG before stopping EC2
+Load balancer requires subnets in minimum 2 availability zones
+Correct resource deletion order prevents errors and unexpected charges
+New AWS accounts may require verification for certain services like CloudFront
+Target groups connect load balancers to EC2 instances
