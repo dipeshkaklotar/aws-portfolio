@@ -1,0 +1,18 @@
+COMPLIANCE AUDIT REPORT
+Date: Day 12
+
+AWS Config Rules:
+→ s3-bucket-public-read-prohibited: Completed
+→ iam-user-mfa-enabled: Completed
+→ root-account-mfa-enabled: Completed
+
+Security Hub Summary:
+→ Threats: 1
+→ Exposure: 4
+→ Resources monitored: 114
+→ Total findings: 611
+
+Conformance Pack: 
+→ dipesh-iam-compliance: Completed 
+
+Overall Status: Active Monitoring 
