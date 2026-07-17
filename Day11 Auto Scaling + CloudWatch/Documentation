@@ -1,0 +1,51 @@
+PROJECT 8: CloudWatch Monitoring + Alerts
+Date: Day 11
+What I built:
+
+Created custom CloudWatch dashboard (dipesh-security-dashboard)
+Added EC2 CPU utilization line chart widget to dashboard
+Added S3 bucket size number widget to dashboard
+Created billing alarm alerting when charges exceed $5
+Created EC2 status check alarm for instance health monitoring
+Created CloudTrail log metric filter for console login detection
+Ran CloudWatch Logs Insights query on CloudTrail logs
+Uploaded index.html to S3 bucket for CloudFront preparation
+Connected all alarms to SNS topic for email notifications
+
+Security concepts applied:
+
+Billing alarm prevents unexpected charge surprises
+EC2 status check alarm detects instance failures immediately
+Console login metric filter detects unauthorized access attempts
+CloudWatch Logs Insights enables security log analysis
+Centralized dashboard gives single pane of glass monitoring
+All alerts connected to SNS for real time notification
+
+Challenges faced and resolved:
+
+Billing metric not found in CloudWatch select metric
+Enabled billing alerts in Billing Preferences first
+Billing metric appeared after enabling alerts
+Custom namespace not appearing for login alarm
+Understood that metric filters need actual log data first
+Generated ConsoleLogin event by logging out and back in
+Namespace will appear after log processing completes
+Documented as real world learning experience
+
+Real world value:
+
+CloudWatch dashboards are used by every cloud team for monitoring
+Billing alarms are mandatory for any AWS account to prevent surprise charges
+Console login detection is a critical security monitoring requirement
+CloudWatch Logs Insights is used daily by security analysts for investigation
+Metric filters transform raw logs into actionable security metrics
+
+Key learnings:
+
+CloudWatch dashboards give single view of entire infrastructure health
+Billing alarms should be first thing created in any new AWS account
+Metric filters need actual log data before custom namespace appears
+Logs Insights allows SQL-like queries on CloudWatch log data
+Status check alarms detect EC2 hardware and software failures
+All monitoring alarms should notify via SNS for immediate response
+S3 storage metrics can be monitored through CloudWatch
