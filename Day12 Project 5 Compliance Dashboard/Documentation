@@ -1,0 +1,54 @@
+PROJECT 5: AWS Security Compliance Dashboard
+Date: Day 12
+What I built:
+
+Enabled AWS Config with full resource recording
+Created S3 bucket for Config logs (dipesh-config-logs-2026)
+Connected Config notifications to SNS security alerts
+Added 3 AWS Config compliance rules:
+s3-bucket-public-read-prohibited
+iam-user-mfa-enabled
+root-account-mfa-enabled
+Deployed IAM compliance conformance pack (dipesh-iam-compliance)
+Reviewed Security Hub executive dashboard
+Verified complete security posture across all resources
+
+Security concepts applied:
+
+Continuous compliance monitoring with AWS Config
+Automated rule checking for S3 public access
+MFA enforcement verification for all IAM users
+Root account MFA compliance checking
+Conformance pack for IAM best practices
+Centralized security findings in Security Hub
+Real time SNS notifications for compliance changes
+
+Challenges faced and resolved:
+
+Received continuous SNS emails after enabling Config
+Understood this is normal initial scan behavior
+Emails reduced after initial resource scan completed
+AWS Config integration not found in Security Hub catalog
+Discovered integration is now built-in automatically
+No manual configuration needed in updated AWS console
+S3 bucket option not available in conformance pack setup
+Newer AWS console handles storage automatically
+Completed deployment without manual S3 configuration
+
+Real world value:
+
+AWS Config is mandatory for compliance frameworks like SOC2, PCI DSS and ISO27001
+Conformance packs allow companies to deploy 50+ rules instantly
+Security Hub gives single pane of glass for entire security posture
+611 active findings shows real monitoring happening across 114 resources
+This exact setup is used by enterprise security teams daily
+
+Key learnings:
+
+AWS Config records every configuration change in your account
+Compliance rules automatically check resources against best practices
+Conformance packs bundle multiple rules for specific compliance frameworks
+Security Hub aggregates findings from Config, GuardDuty and other services
+Initial Config scan generates many SNS notifications — expected behavior
+AWS console updates mean some features work differently than documentation
+Real security posture monitoring requires multiple services working together
